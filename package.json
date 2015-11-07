@@ -1,0 +1,22 @@
+{
+  "name": "MongoHomework",
+  "version": "0.0.0",
+  "description": "Homework for Mongo",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "homework",
+    "mongodb"
+  ],
+  "author": "Dimitar Kerezov",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.13.3",
+    "mongodb": "^2.0.48"
+  },
+  "devDependencies": {
+    "nodemon": "^1.8.1"
+  }
+}
