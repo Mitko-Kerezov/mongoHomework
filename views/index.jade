@@ -1,5 +1,40 @@
 html(lang="en")
-  head
-    title= pageTitle
-  body
-    h1 Jade - node template engine
+	head
+		title Homework
+		link(href="//maxcdn.bootstrapcdn.com/bootswatch/3.3.0/flatly/bootstrap.min.css", rel="stylesheet")
+	body
+		h1(class="Jumbotron") Races
+		table(class="table table-striped table-hover")
+			tr
+				th Name
+				th Location
+				th Participants
+				th Distances
+				th Winners
+				th Sponsors
+				th Summary
+			each val in marathons
+				tr
+					td !{val.name} 
+					td !{val.location}
+					td !{val.participants}
+					td 
+						each distance in val.distances 
+							!{distance}km 
+					td 
+						each winner in val.winners
+							!{winner.distance}km - !{winner.name}
+					td 
+						- if(val.sponsors) {
+							!{val.sponsors}
+						- }
+					td 
+						- if(val.summary) {
+							!{val.summary}
+						- }
+
+		a(class="btn btn-primary", href="/") All races
+		a(class="btn btn-warning", href="/burgasTopThree") 1. Burgas Top Three
+		a(class="btn btn-info", href="/addMarathons") 2. Add marathon summaries
+		a(class="btn btn-danger", href="/removePetarAndMaria") 3. Remove Maria's race
+		a(class="btn btn-primary", href="/updateSponsors") 4. Update sponsors' distances
