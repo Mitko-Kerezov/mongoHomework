@@ -64,9 +64,14 @@ function setupExpress(marathons) {
     });
 
     app.get('/removePetarAndMaria', function(req, res) {
-        marathons.deleteMany(
-            {$and: [{"winners.name": {$in: ["Pater Petrov", "Maria Ivanova"]}},
-            {"winners.distance": 2}]}, 
+        marathons.deleteMany({
+                winners: {
+                    $elemMatch: {
+                        distance: 2,
+                        name: {$in: ["Pater Petrov", "Maria Ivanova"]}
+                    }
+                }
+            }, 
             function(err) {
                 if (err) {
                     console.error(err);
